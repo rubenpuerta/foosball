@@ -1,0 +1,65 @@
+<img
+  src="../../../assets/images/headers/header2.jpg"
+  alt="Photo of a futbolin"
+  class="header_image"
+/>
+<form
+  class="container"
+  novalidate
+  (ngSubmit)="onFormSubmit()"
+  [formGroup]="playerForm"
+>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Name"
+      formControlName="name"
+      [errorStateMatcher]="matcher"
+    />
+    <mat-error *ngIf="playerForm.controls['name'].hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Surname"
+      formControlName="surname"
+      [errorStateMatcher]="matcher"
+    />
+    <mat-error *ngIf="playerForm.controls['surname'].hasError('required')">
+      Surname is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      placeholder="Email"
+      formControlName="email"
+      [errorStateMatcher]="matcher"
+    />
+    <mat-error
+      *ngIf="
+        playerForm.controls['email'].hasError('email') &&
+        !playerForm.controls['email'].hasError('required')
+      "
+    >
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="playerForm.controls['email'].hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    class="submit_button"
+    mat-fab
+    color="primary"
+    aria-label="save button"
+    [disabled]="playerForm.valid ? 'false' : 'true'"
+  >
+    <mat-icon>save</mat-icon>
+  </button>
+</form>

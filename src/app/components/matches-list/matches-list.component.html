@@ -1,0 +1,35 @@
+<mat-card class="card" *ngFor="let match of matches">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{ match.matchName }}</mat-card-title>
+    <mat-card-subtitle
+      >Match created at
+      {{ match.createdAt | date: 'd/LLL H:mm' }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="../../../assets/images/cards/futbolin1.jpg"
+    alt="Photo of a futbolin"
+  />
+  <mat-card-content>
+    <mat-list>
+      <h3 mat-subheader>Players</h3>
+      <mat-list-item *ngFor="let player of match.players; let i = index">
+        <mat-icon mat-list-icon>person_pin</mat-icon>
+        <p mat-line>{{ i + 1 }} | {{ player.name }} {{ player.surname }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="deleteMatch(match)" mat-stroked-button color="accent">
+      <mat-icon>sports</mat-icon>
+      END OF MATCH
+    </button>
+    <!-- <button mat-stroked-button color="accent">
+      <mat-icon>save</mat-icon>
+      SAVE YOUR SCORE
+    </button> -->
+  </mat-card-actions>
+  <mat-divider [inset]="true"></mat-divider>
+</mat-card>

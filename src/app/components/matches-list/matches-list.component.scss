@@ -1,0 +1,35 @@
+.field {
+  // display: block;
+  padding-top: 5px;
+  vertical-align: baseline;
+}
+
+.player_list {
+  display: flex;
+  justify-content: baseline;
+}
+
+.main_title {
+  font-size: 2em;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  margin: 0 !important;
+  width: 100%;
+}
+
+.header-image {
+  background-image: url('../../../assets/images/avatars/subuteo1.png');
+  background-size: cover;
+}
+
+::ng-deep .warning {
+  text-align: justify;
+  background-color: #f2de08;
+  color: black;
+}

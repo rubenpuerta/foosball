@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>
+  <img class="icon" src="../../../../assets/images/avatars/icon-32x32.png" />
+  {{ description }}
+</h2>
+<div mat-dialog-content>
+  {{ question }}
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button color="warn" (click)="onNoClick()">
+    <mat-icon>thumb_down</mat-icon>
+    No
+  </button>
+  <button mat-button color="primary" (click)="onYesClick()" cdkFocusInitial>
+    <mat-icon>thumb_up</mat-icon>
+    Yes
+  </button>
+</div>

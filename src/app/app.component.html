@@ -1,0 +1,7 @@
+<div class="spinnerContainer" *ngIf="isLoading$ | async; else continueFlow">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-template #continueFlow>
+  <app-header [shouldBeVisible]="shouldBeVisible | async"></app-header>
+  <router-outlet> </router-outlet>
+</ng-template>

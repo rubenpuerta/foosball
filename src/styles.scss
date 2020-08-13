@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@include mat-core();
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-futbolinprimary: (
+  50: #e7efe4,
+  100: #c3d6bb,
+  200: #9cbb8e,
+  300: #749f61,
+  400: #568b3f,
+  500: #38761d,
+  600: #326e1a,
+  700: #2b6315,
+  800: #245911,
+  900: #17460a,
+  A100: #94ff7d,
+  A200: #6aff4a,
+  A400: #40ff17,
+  A700: #2dfc00,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$md-futbolinaccent: (
+  50: #e5eae3,
+  100: #becab8,
+  200: #93a789,
+  300: #68835a,
+  400: #476936,
+  500: #274e13,
+  600: #234711,
+  700: #1d3d0e,
+  800: #17350b,
+  900: #0e2506,
+  A100: #7dff61,
+  A200: #53ff2e,
+  A400: #2cfa00,
+  A700: #27e100,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$primary: mat-palette($md-futbolinprimary);
+$accent: mat-palette($md-futbolinaccent);
+
+$themefutbolin: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($themefutbolin);

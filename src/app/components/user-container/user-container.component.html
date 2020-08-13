@@ -1,0 +1,12 @@
+<app-user
+  *ngIf="!isEditVisible"
+  (selectedOption)="doAccion($event)"
+  [playerList]="playersList$ | async"
+  [userListOptions]="userListOptions"
+></app-user>
+
+<app-user-form
+  *ngIf="isEditVisible"
+  (sentData)="onSubmit($event)"
+  [previousData]="currentPlayer$ | async"
+></app-user-form>

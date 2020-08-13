@@ -1,0 +1,47 @@
+<div class="container">
+  <!-- <div>
+    <span>Current message:</span>
+    <h1>{{ (message | async)?.notification.title }}</h1>
+    <img [src]="(message | async)?.notification.icon" width="100px" />
+    <p>{{ (message | async)?.notification.body }}</p>
+
+    {{ message | async | json }}
+  </div> -->
+
+  <app-matches-list
+    *ngIf="(nextMatch$ | async)?.length; else withoutMatches"
+    [matches]="nextMatch$ | async"
+  ></app-matches-list>
+  <ng-template #withoutMatches>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title>Book a match</mat-card-title>
+        <mat-card-subtitle>Be the first today</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="../../../assets/images/backgrounds/background2_solid.jpg"
+        alt="Photo of a futbolin"
+      />
+
+      <mat-card-content>
+        <p>
+          When you finish the match, please click on <i>end of match</i> button
+          on your reservation. So next players will be aware, and could go to
+          play.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-stroked-button
+          color="accent"
+          [routerLink]="['/match_request_form']"
+        >
+          <mat-icon>sports_soccer</mat-icon>
+          BOOK THE NEXT MATCH
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+</div>

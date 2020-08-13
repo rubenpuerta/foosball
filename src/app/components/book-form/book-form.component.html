@@ -1,0 +1,40 @@
+<img
+  src="../../../assets/images/headers/header4.jpg"
+  alt="Photo of a futbolin"
+  class="header_image"
+/>
+<form
+  class="container"
+  novalidate
+  (ngSubmit)="onFormSubmit()"
+  [formGroup]="matchForm"
+>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Match name"
+      formControlName="matchName"
+      [errorStateMatcher]="matcher"
+      #matchName="matInput"
+    />
+    <mat-error *ngIf="matchForm.controls['matchName'].hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <button
+    class="submit_button"
+    mat-fab
+    color="primary"
+    aria-label="save button"
+    [disabled]="matchForm.valid && validPlayerList ? 'false' : 'true'"
+  >
+    <mat-icon>save</mat-icon>
+  </button>
+  <span>Select match players</span>
+  <app-user
+    (selectedValues)="selectedPlayers($event)"
+    [playerList]="playersList$ | async"
+    [userListOptions]="userListOptions"
+    [currentPlayer]="currentUser"
+  ></app-user>
+</form>
